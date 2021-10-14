@@ -1,0 +1,47 @@
+.home {
+  background-color: #EADEB8;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home__header {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-top: 50px;
+  color: brown;
+}
+
+.home__content {
+  position: relative;
+  margin-top: 50px;
+  right: 0px;
+  width: 1400px;
+  height: fit-content;
+  padding: 70px;
+  display: flex;
+  border-radius: 50px;
+  /* TODO: delete later */
+  border: 1px solid black; 
+}
+
+
+/* TODO: delete later */
+.test {
+  width: 500px;
+  height: 500px;
+  background-color: yellow;
+  opacity: 1;
+}
+.test2 {
+  width: 400px;
+  height: 400px;
+  background-color: red;
+  opacity: 0.5;
+}

@@ -1,0 +1,31 @@
+TODO: 
+- animation trigger (and stay) on scroll
+  - and then disable that animation unless component gets out of screen (back to beyond
+    bottom)
+- round containers (with linear gradient) that have image of my work on eitherl left/right
+  and text on the other side 
+    - animation: trigger:
+      - initially clipped by small circle, expands to rounded square while moving to
+        left/right, while text's opacity goes from 0-1
+      - container's bg goes from 0-1 opac, and when reached specific scroll pos, 
+        pop (scale to 1.2 then back to 1) animation trigger 
+          - *** this pop will not re-trigger unless the user has scrolled up the 
+            container out of screen --> how to do this? 
+            - keep var isReset (boolean), and use this as part of logic inside 
+              useLayoutEffect where you determine the scroll pos and trigger 
+              animation (check whether animation isReset --> it resets when cmp 
+              y pos is lower than curr height and is off-screen):
+              var elem = document.querySelector('#some-element');
+              var bounding = elem.getBoundingClientRect();
+              if (bounding.top < 0) {	// Top is out of viewport }
+      - upon pop, wave ripple that slowly fades:
+        - opac dec over time
+        - have child that has another child --> first child is the ripple,
+          second child is transparent but somehow blocks the center area of 
+          first child
+        - scale the first child while its opac decreases 
+- progress bar at top (sticky, right below header text), (this also uses scrollmagic?)
+- 
+
+- https://colorhunt.co/palette/eadeb8cfb784c56824a09f57
+  - color hunt 
