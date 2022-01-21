@@ -6,12 +6,15 @@
   left: 0;
   top: 200px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.5);
   box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.3);
   overflow: hidden;
+  
+  --animate-time: 4s;
   
   background-image: linear-gradient(
     30deg, 
@@ -23,7 +26,7 @@
   );
   background-size: 1000%;
   background-position: top;
-  animation: gradient 4s cubic-bezier(.71,.02,.31,.99) infinite alternate;
+  animation: gradient var(--animate-time) cubic-bezier(.71,.02,.31,.99) infinite alternate;
 }
 
 @keyframes gradient {
@@ -40,8 +43,44 @@
   writing-mode: vertical-lr;
   text-orientation: upright;
   position: relative;
-  top: -20px;
+  top: -30px;
   user-select: none;
+  font-weight: 500;
+  transition: opacity 300ms;
+}
+
+.LeftBar_shape {
+  position: relative;
+  width: 14px; height: 14px;
+  background-color: transparent;
+  border: 2px solid black;
+  transform: rotateZ(45deg);
+  animation: shape var(--animate-time) cubic-bezier(.71,.02,.31,.99) infinite alternate;
+  transition: opacity 300ms;
+}
+
+@keyframes shape {
+  0% {
+    transform: rotateZ(45deg);
+  }
+  100% {
+    transform: rotateZ(calc(45deg + 360deg *3));
+  }
+}
+
+.LeftBar_topArrow {
+  position: absolute;
+  opacity: 0;
+  fill: black;
+  width: 50px;
+  transform: rotateZ(90deg) translateX(50px);
+  stroke-width: 2%;
+  transition: opacity 300ms, transform 300ms;
+}
+
+.LeftBar___hover {
+  opacity: 1;
+  transform: rotateZ(90deg) translateX(0px);
 }
 
 .LeftBar_btn {
@@ -51,6 +90,7 @@
   user-select: none;
   font-size: 15px;
   font-weight: 600;
+  transition: transform 300ms;
 }
 
 .LeftBar_btn::after {
@@ -60,3 +100,4 @@
   width: 100%; height: 2px;
   background-color: rgba(0, 0, 0, 0.6);
 }
+

@@ -1,12 +1,15 @@
 import React from "react";
 import "../styles/Home.css";
+import Waterdrop from "./Waterdrop";
 
 function Home() {
   return (
     <div className="Home">
 
       <div className="Home_header">HEON YIM</div>
-      <div className="Home_content">sdfsdfds</div>
+      <div className="Home_content">
+        <Waterdrop/>
+      </div>
       
       
     </div>
