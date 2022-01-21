@@ -1,6 +1,17 @@
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #EADEB8;
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --pri-color-rgb: 104, 103, 172;
+  --sec-color-rgb: 162, 103, 172;
+  --ter-color-rgb: 206, 123, 176;
+  --quar-color-rgb: 255, 188, 209;
+  --dark-color-hex: #5d4e85;
+}
+
+* {
+  margin: 0; padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Rajdhani', sans-serif;
 }
 

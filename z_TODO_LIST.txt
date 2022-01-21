@@ -25,7 +25,8 @@ TODO:
           first child
         - scale the first child while its opac decreases 
 - progress bar at top (sticky, right below header text), (this also uses scrollmagic?)
-- 
+  - fills up as you scroll down (reach end of page --> fill entirely)
+  
 
 - https://colorhunt.co/palette/eadeb8cfb784c56824a09f57
   - color hunt 
