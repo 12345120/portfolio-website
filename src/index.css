@@ -6,7 +6,9 @@
   --ter-color-rgb: 206, 123, 176;
   --quar-color-rgb: 255, 188, 209;
   --dark-color-hex: #5d4e85;
+  --dark-color-rgb: 93, 78, 133;
   --dark-strong-hex: #3f345c;
+  --dark-strong-rgb: 63, 52, 92;
 }
 
 * {

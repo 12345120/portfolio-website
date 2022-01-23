@@ -9,6 +9,9 @@ function Home() {
       <div className="Home_header">HEON YIM</div>
       <div className="Home_content">
         <Waterdrop/>
+        <Waterdrop/>
+        <Waterdrop/>
+        <Waterdrop/>
       </div>
       
       

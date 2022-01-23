@@ -1,6 +1,7 @@
 .Home {
   position: relative;
-  margin-inline: auto;
+  z-index: 9;
+  margin-inline: auto; padding: 100px 100px;
   width: 100%;
   height: fit-content;
   display: flex;
@@ -10,9 +11,8 @@
 }
 
 .Home_header {
-  font-size: 3rem;
+  font-size: 5rem;
   font-weight: 900;
-  margin-top: 50px;
   margin-inline: auto;
   color: rgb(var(--pri-color-rgb));
   color: #5d4e85;
@@ -25,10 +25,17 @@
   width: 80%;
   right: 0px;
   height: fit-content;
-  padding: 70px;
-  display: flex;
+  padding: 100px 70px;
   border-radius: 50px;
-  border: 1px solid black; 
+  /* border: 1px solid black; */
+  box-shadow: 5px 5px 25px 0px rgba(0,0,0,.2);
+  background-image: linear-gradient(90deg, rgba(var(--ter-color-rgb), 0.5), transparent); 
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
 }
 
 
