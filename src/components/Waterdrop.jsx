@@ -3,6 +3,8 @@ import "../styles/Waterdrop.css";
 
 function Waterdrop() {
   const [clicked, setClicked] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  
 
   return (
     <div className="Waterdrop">
@@ -21,6 +23,14 @@ function Waterdrop() {
         </path>
       </svg>
       
+      <h1 className={`Waterdrop_text ${
+        hovered ? 'Waterdrop_text___unblur' : ''
+      } ${
+        clicked ? 'Waterdrop_text___fadeOut' : ''
+      }`}>Click!</h1>
+      
+      <h1 className="Waterdrop_loadingText">Loading</h1>
+      
       <div
         className={`Waterdrop_circleWrapper ${
           clicked ? "Waterdrop_circleWrapper___bounce" : ""
@@ -31,6 +41,8 @@ function Waterdrop() {
             clicked ? "Waterdrop_circle___expand" : ""
           }`}
           onClick={() => setClicked(true)}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
         ></div>
       </div>
     </div>
