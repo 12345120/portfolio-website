@@ -107,7 +107,7 @@
   position: absolute;
   font-size: 5rem;
   text-shadow: 5px 5px 1px rgba(255,255,255, 0.45);
-  filter: blur(50px);
+  filter: blur(100px);
   transition: filter 300ms, opacity 200ms;
 }
 
@@ -124,5 +124,25 @@
 
 .Waterdrop_loadingText {
   position: absolute;
-  font-size: 0.5rem;
+  font-size: 2.5rem;
+}
+
+.char {
+  offset-path: path('M 0 0 L 204 105');
+  offset-path: path('M 0 0 C 85.5 -25.2 102 50 8 88 C -86 117 -190 -43 -2.1 -86.4 L 193 -88');
+  /* offset-path: path('M 6 4 L 690 76 C 563 711 519 -258 204 353'); */
+  offset-distance: calc(var(--char-index) * var(--char-width));
+	position: absolute;
+	animation: loop 3500ms linear infinite alternate calc(var(--char-index) * 0ms);
+}
+
+@keyframes loop {
+	50% {
+		/* offset-distance: calc((var(--char-index) * 1.5rem) + 00px); */
+	}
+  
+	100% {
+		offset-distance: calc(var(--path-len) - var(--num-chars)*var(--char-width) 
+      - (var(--num-chars) - var(--char-index)-1) * var(--char-width));
+	}
 }
