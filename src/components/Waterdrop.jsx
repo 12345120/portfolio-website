@@ -5,12 +5,6 @@ export default function Waterdrop() {
   const [clicked, setClicked] = useState(false);
   const [hovered, setHovered] = useState(false);
   const charRef = useRef(null);
-  const pathRef = useRef(null);
-  const [pathLength, setPathLength] = useState(0);
-
-  useEffect(() => {
-    setPathLength(pathRef.current.getTotalLength());
-  }, [pathRef]);
 
   return (
     <div className="Waterdrop">
@@ -26,14 +20,8 @@ export default function Waterdrop() {
         Click!
       </h1>
 
-      <svg visibility={"hidden"} style={{ position: "absolute" }}>
-        <path
-          ref={pathRef}
-          d="M 0 0 C 85.5 -25.2 102 50 8 88 C -86 117 -190 -43 -2.1 -86.4 L 193 -88"
-        ></path>
-      </svg>
       <h1 className="Waterdrop_loadingText">
-        <TextSplit text={"Loading"} ref={charRef} pathLength={pathLength} />
+        <TextSplit text={"Loading"} ref={charRef} />
       </h1>
 
       <div
@@ -54,7 +42,7 @@ export default function Waterdrop() {
   );
 }
 
-const TextSplit = forwardRef(({ text, pathLength }, ref) => {
+const TextSplit = forwardRef(({ text }, ref) => {
   const fullText = text;
   let characters = [];
   const numChars = fullText.length;
@@ -69,7 +57,6 @@ const TextSplit = forwardRef(({ text, pathLength }, ref) => {
   }, [ref]);
 
   console.log("width: ", width);
-  console.log("path length: ", pathLength);
 
   return (
     <span className="word">
@@ -82,7 +69,6 @@ const TextSplit = forwardRef(({ text, pathLength }, ref) => {
             "--char-index": index,
             "--char-width": width + "px",
             "--num-chars": numChars,
-            "--path-len": pathLength + "px",
           }}
         >
           {c}

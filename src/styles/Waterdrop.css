@@ -129,7 +129,7 @@
 
 .char {
   offset-path: path('M 0 0 L 204 105');
-  offset-path: path('M 0 0 C 85.5 -25.2 102 50 8 88 C -86 117 -190 -43 -2.1 -86.4 L 193 -88');
+  offset-path: path('M 0 0 C 85.5 -25.2 102 50 8 88 C -95 118 -148 30 -109 -41 C -80 -91 15 -88 107 -81');
   /* offset-path: path('M 6 4 L 690 76 C 563 711 519 -258 204 353'); */
   offset-distance: calc(var(--char-index) * var(--char-width));
 	position: absolute;
@@ -142,7 +142,7 @@
 	}
   
 	100% {
-		offset-distance: calc(var(--path-len) - var(--num-chars)*var(--char-width) 
+		offset-distance: calc(100% 
       - (var(--num-chars) - var(--char-index)-1) * var(--char-width));
 	}
 }
