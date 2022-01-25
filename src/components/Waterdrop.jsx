@@ -43,6 +43,8 @@ export default function Waterdrop() {
 }
 
 const TextSplit = forwardRef(({ text }, ref) => {
+  const [width, setWidth] = useState("");
+  
   const fullText = text;
   let characters = [];
   const numChars = fullText.length;
@@ -50,14 +52,30 @@ const TextSplit = forwardRef(({ text }, ref) => {
     characters.push(fullText.charAt(i));
   }
 
-  const [width, setWidth] = useState("");
 
   useEffect(() => {
     setWidth(ref.current.offsetWidth);
   }, [ref]);
 
-  console.log("width: ", width);
-
+  // console.log("width: ", width);
+  
+  const scalePath = (path, scale) => {
+    const pathElements = path.split(/\s+/);
+    const pathReducer = (prevVal, currVal) => {
+      if (isNaN(currVal)) {
+        return prevVal + " " + currVal;
+      } else {
+        return prevVal + " " + currVal * scale;
+      }
+    }
+    const scaledPath = pathElements.reduce(pathReducer);
+    return scaledPath; 
+  }
+  
+  const path = "M 0 0 C 85.5 -25.2 102 50 8 88 C -78 92 -85 66 -104 13 C -130 -97 -87 -90 114 -83"
+  const scale = 1.2;
+  const scaledPath = scalePath(path, scale);
+  
   return (
     <span className="word">
       {characters.map((c, index) => (
@@ -66,9 +84,10 @@ const TextSplit = forwardRef(({ text }, ref) => {
           ref={ref}
           className="char"
           style={{
-            "--char-index": index,
+            "--char-index": `${index}`,
             "--char-width": width + "px",
             "--num-chars": numChars,
+            "--path": `"${scaledPath}"`
           }}
         >
           {c}
