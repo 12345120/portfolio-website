@@ -4,7 +4,6 @@ import "../styles/Waterdrop.css";
 export default function Waterdrop() {
   const [clicked, setClicked] = useState(false);
   const [hovered, setHovered] = useState(false);
-  const charRef = useRef(null);
 
   return (
     <div className="Waterdrop">
@@ -21,7 +20,7 @@ export default function Waterdrop() {
       </h1>
 
       <h1 className="Waterdrop_loadingText">
-        <TextSplit text={"Loading"} ref={charRef} />
+        <TextSplit text={"Loading!"} clicked={clicked}/>
       </h1>
 
       <div
@@ -42,7 +41,7 @@ export default function Waterdrop() {
   );
 }
 
-const TextSplit = forwardRef(({ text }, ref) => {
+const TextSplit = ({ text, clicked }) => {
   const [width, setWidth] = useState("");
   
   const fullText = text;
@@ -52,13 +51,6 @@ const TextSplit = forwardRef(({ text }, ref) => {
     characters.push(fullText.charAt(i));
   }
 
-
-  useEffect(() => {
-    setWidth(ref.current.offsetWidth);
-  }, [ref]);
-
-  // console.log("width: ", width);
-  
   const scalePath = (path, scale) => {
     const pathElements = path.split(/\s+/);
     const pathReducer = (prevVal, currVal) => {
@@ -72,8 +64,8 @@ const TextSplit = forwardRef(({ text }, ref) => {
     return scaledPath; 
   }
   
-  const path = "M 0 0 C 85.5 -25.2 102 50 8 88 C -78 92 -85 66 -104 13 C -130 -97 -87 -90 114 -83"
-  const scale = 1.2;
+  const path = "M 0 0 C 126 -66 78 85 8 88 C -58 64 -65 50 -90 13 C -130 -97 -87 -90 114 -83"
+  const scale = 1.4;
   const scaledPath = scalePath(path, scale);
   
   return (
@@ -81,11 +73,10 @@ const TextSplit = forwardRef(({ text }, ref) => {
       {characters.map((c, index) => (
         <span
           key={index}
-          ref={ref}
-          className="char"
+          className={`char ${clicked ? 'char-animation' : ''}`}
           style={{
             "--char-index": `${index}`,
-            "--char-width": width + "px",
+            "--char-width": 20 + "px",
             "--num-chars": numChars,
             "--path": `"${scaledPath}"`
           }}
@@ -93,6 +84,7 @@ const TextSplit = forwardRef(({ text }, ref) => {
           {c}
         </span>
       ))}
+      
     </span>
   );
-});
+};

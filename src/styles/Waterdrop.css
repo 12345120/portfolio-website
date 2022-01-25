@@ -6,7 +6,8 @@
   display: flex;
   justify-content: center; align-items: center;
   
-  --animation-time: 0.8s;
+  --drop-animation-time: 0.8s;
+  --drop-animation-delay: 2.0s;
 }
 
 .Waterdrop_body {
@@ -20,7 +21,7 @@
   opacity: 0;
   background-image: linear-gradient(110deg, var(--dark-color-hex), 20%, var(--dark-strong-hex));
 
-  transition: opacity 300ms calc(var(--animation-time) * 1.50);
+  transition: opacity 300ms calc(var(--drop-animation-time) * 1.50 + var(--drop-animation-delay) * 0.65);
 }
 
 .Waterdrop_body__opac {
@@ -46,7 +47,7 @@
   cursor: pointer;
   background-color: white;
   border-radius: 100%;
-  width: 30px; height: 30px;
+  width: 40px; height: 40px;
   box-shadow: 
     inset 5px 5px 10px rgba(var(--pri-color-rgb), 0.15),
     inset -5px -5px 8px rgba(var(--pri-color-rgb), 0.7),
@@ -57,13 +58,18 @@
 }
 
 .Waterdrop_circleWrapper___bounce {
-  animation: drop-click-bounce var(--animation-time) forwards;
+  animation: drop-click-bounce var(--drop-animation-time) 
+    calc(var(--drop-animation-delay) * 0.65) forwards;
 }
 
 .Waterdrop_circle___expand {
-  animation: drop-click-expand calc(var(--animation-time) * 0.7) 
+  animation: drop-click-expand calc(var(--drop-animation-time) * 0.7) 
     cubic-bezier(.53,.07,.17,.97)
-    calc(var(--animation-time) * 0.85) forwards;
+    calc(var(--drop-animation-time) * 0.8 + var(--drop-animation-delay) * 0.65) 
+    forwards,
+    circle-bounce-scale var(--drop-animation-time)
+    calc(var(--drop-animation-delay) * 0.65) 
+    forwards;
   cursor: auto;
 }
 
@@ -87,15 +93,30 @@
     animation-timing-function: cubic-bezier(.77,0,.91,.74);
   }
   35% {
-    transform: translateY(50px);
+    transform: translateY(80px);
     animation-timing-function: cubic-bezier(.19,.49,.44,.99);
   }
   80% {
-    transform: translateY(-50px);
+    transform: translateY(-80px);
     animation-timing-function: ease-in;
   }
   100% {
     transform: translateY(0px);
+  }
+}
+
+@keyframes circle-bounce-scale {
+  0% {
+    animation-timing-function: cubic-bezier(.77,0,.91,.74);
+  }
+  35% {
+   transform: scaleX(1.5); 
+   animation-timing-function: cubic-bezier(.19,.49,.44,.99);
+  }
+  80% {
+    transform: scaleY(1.5);
+  }
+  100% {
   }
 }
 
@@ -105,7 +126,7 @@
 
 .Waterdrop_text {
   position: absolute;
-  font-size: 5rem;
+  font-size: 6rem;
   text-shadow: 5px 5px 1px rgba(255,255,255, 0.45);
   filter: blur(100px);
   transition: filter 300ms, opacity 200ms;
@@ -124,24 +145,67 @@
 
 .Waterdrop_loadingText {
   position: absolute;
-  font-size: 2.5rem;
+  font-size: 2.7rem;
 }
 
 .char {
+  --text-animation-time: var(--drop-animation-delay);
+  
+  text-shadow: 5px 5px 1px rgba(255,255,255, 0.25);
+  
   offset-path: path(var(--path));
   offset-distance: calc(var(--char-index) * var(--char-width) 
     - var(--char-width) * var(--num-chars));
 	position: absolute;
-	animation: loop 3500ms linear infinite alternate calc(var(--char-index) * 0ms);
+}
+
+.char-animation {
+  animation: loop var(--text-animation-time) ease-in calc(((var(--num-chars) - var(--char-index)-1)) * 20ms) forwards,
+    spin-char calc(var(--text-animation-time) * 0.5) ease-in calc(((var(--num-chars) - var(--char-index)-1)) * 50ms) forwards,
+    font-appear var(--text-animation-time) ease-in forwards;
 }
 
 @keyframes loop {
 	50% {
-		/* offset-distance: calc((var(--char-index) * 1.5rem) + 00px); */
-	}
-  
-	100% {
-		offset-distance: calc(100% 
+		offset-distance: calc(92% 
       - (var(--num-chars) - var(--char-index)-1) * var(--char-width));
 	}
+  100% {
+    offset-distance: calc(100% 
+      - (var(--num-chars) - var(--char-index)-1) * var(--char-width));
+  }
+}
+
+@keyframes spin-char {
+  0% {
+  }
+  20% {
+  }
+  50% {
+    transform: rotateX(0deg);
+  }
+  72% {
+    transform: rotateX(360deg);
+  }
+  100% {
+    transform: rotateX(360deg);
+  }
+}
+
+@keyframes font-appear {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }  
+  50% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }
