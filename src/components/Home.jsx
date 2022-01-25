@@ -6,7 +6,7 @@ function Home() {
   return (
     <div className="Home">
 
-      <div className="Home_header">HEON YIM</div>
+      <div title="HEON YIM" className="Home_header">HEON YIM</div>
       <div className="Home_content">
         <Waterdrop/>
         <Waterdrop/>

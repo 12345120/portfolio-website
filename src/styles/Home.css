@@ -11,12 +11,54 @@
 }
 
 .Home_header {
+  position: relative;
   font-size: 5rem;
   font-weight: 900;
   margin-inline: auto;
-  color: rgb(var(--pri-color-rgb));
-  color: #5d4e85;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+  color: rgb(var(--dark-strong-rgb));
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+  perspective: 300px;
+  
+  --flicker-time: 2s;
+}
+
+.Home_header::before {
+  content: '';
+  position: absolute;
+  top: 70%; left: 0; 
+  width: 100%; height: 100%;
+  background-color: rgba(255,255,255,0.8);
+  transform: rotateX(90deg);
+  filter: blur(30px);
+  opacity: 0;
+  animation: shadow-flicker var(--flicker-time) linear infinite;
+}
+
+@keyframes shadow-flicker {
+  9%, 30%, 42%, 60%, 100% {
+    opacity: 0;
+  }
+  10%, 40%, 45% {
+    opacity:0.3;
+  }
+}
+
+.Home_header::after {
+  content: attr(title);
+  position: absolute;
+  top: 0; left: 0;
+  color: rgba(255,255,255,0.3);
+  animation: text-flicker var(--flicker-time) linear infinite;
+  opacity: 0;
+}
+
+@keyframes text-flicker {
+  9%, 30%, 42%, 60%, 100% {
+    opacity: 0;
+  }
+  10%, 40%, 45% {
+    opacity: 1;
+  }
 }
 
 .Home_content {

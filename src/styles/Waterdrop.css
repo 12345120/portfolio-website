@@ -7,7 +7,7 @@
   justify-content: center; align-items: center;
   
   --drop-animation-time: 0.8s;
-  --drop-animation-delay: 2.0s;
+  --drop-animation-delay: 1.4s;
 }
 
 .Waterdrop_body {
@@ -152,11 +152,13 @@
   --text-animation-time: var(--drop-animation-delay);
   
   text-shadow: 5px 5px 1px rgba(255,255,255, 0.25);
+  opacity: 0;
   
   offset-path: path(var(--path));
   offset-distance: calc(var(--char-index) * var(--char-width) 
-    - var(--char-width) * var(--num-chars));
+    - var(--char-width) * var(--num-chars) + 150px);
 	position: absolute;
+  pointer-events: none;
 }
 
 .char-animation {
