@@ -1,7 +1,7 @@
 import { forwardRef, useEffect, useRef, useState } from "react";
 import "../styles/Waterdrop.css";
 
-export default function Waterdrop() {
+export default function Waterdrop({children }) {
   const [clicked, setClicked] = useState(false);
   const [hovered, setHovered] = useState(false);
 
@@ -9,7 +9,9 @@ export default function Waterdrop() {
     <div className="Waterdrop">
       <div
         className={`Waterdrop_body ${clicked ? "Waterdrop_body__opac" : ""}`}
-      ></div>
+      >
+        {children}
+      </div>
 
       <h1
         className={`Waterdrop_text ${

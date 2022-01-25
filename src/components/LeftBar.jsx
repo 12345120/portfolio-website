@@ -4,7 +4,11 @@ import { ReactComponent as Arrow } from "../assets/icons/arrow.svg";
 
 function LeftBar() {
   const [topHover, setTopHover] = useState(false);
-
+  
+  const scrollToTop = () => {
+    document.getElementById('app').scrollIntoView({behavior: 'smooth'});
+  }
+  
   return (
     <div className="LeftBar">
       <div
@@ -26,6 +30,7 @@ function LeftBar() {
         onMouseEnter={() => setTopHover(true)}
         onMouseLeave={() => setTopHover(false)}
         style={topHover ? {transform: 'scale(1.35)'} : {}}
+        onClick={() => scrollToTop()}
       >
         TOP
       </div>

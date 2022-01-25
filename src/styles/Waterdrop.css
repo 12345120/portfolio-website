@@ -15,17 +15,21 @@
   position: absolute;
   top: 0; left: 50%;
   transform: translate(-50%);
-  width: min(100%, 1200px); height: 100%;
+  width: min(100%, 1300px); height: 100%;
   border-radius: 15px;
-  z-index: 9;
+  z-index: 99;
   opacity: 0;
   background-image: linear-gradient(110deg, var(--dark-color-hex), 20%, var(--dark-strong-hex));
-
+  
   transition: opacity 300ms calc(var(--drop-animation-time) * 1.50 + var(--drop-animation-delay) * 0.65);
 }
 
 .Waterdrop_body__opac {
   opacity: 1;
+  animation: become-pointer-active 10ms forwards;
+}
+@keyframes become-pointer-active {
+  to { pointer-events: all;}
 }
 
 .Waterdrop_svg {
@@ -35,7 +39,7 @@
 .Waterdrop_circleWrapper {
   z-index: 1;
   position: relative;
-  width: min(100%, 1200px); height: 100%;
+  width: min(100%, 1300px); height: 100%;
   border-radius: 15px;
   overflow: hidden;
   display: grid;
