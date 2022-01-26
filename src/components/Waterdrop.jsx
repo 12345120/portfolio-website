@@ -1,9 +1,11 @@
-import { forwardRef, useEffect, useRef, useState } from "react";
+import { useState } from "react";
+import { useStateValue } from "../context/StateProvider";
 import "../styles/Waterdrop.css";
 
-export default function Waterdrop({children }) {
+export default function Waterdrop({ children }) {
   const [clicked, setClicked] = useState(false);
   const [hovered, setHovered] = useState(false);
+  const [ , dispatch] = useStateValue();
 
   return (
     <div className="Waterdrop">
@@ -22,7 +24,7 @@ export default function Waterdrop({children }) {
       </h1>
 
       <h1 className="Waterdrop_loadingText">
-        <TextSplit text={"Loading!"} clicked={clicked}/>
+        <TextSplit text={"Loading!"} clicked={clicked} />
       </h1>
 
       <div
@@ -35,8 +37,20 @@ export default function Waterdrop({children }) {
             clicked ? "Waterdrop_circle___expand" : ""
           }`}
           onClick={() => setClicked(true)}
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
+          onMouseEnter={() => {
+            setHovered(true);
+            dispatch({
+              type: "MOUSE_EVENT",
+              trigger: true,
+            });
+          }}
+          onMouseLeave={() => {
+            setHovered(false);
+            dispatch({
+              type: "MOUSE_EVENT",
+              trigger: false,
+            });
+          }}
         ></div>
       </div>
     </div>
@@ -44,8 +58,6 @@ export default function Waterdrop({children }) {
 }
 
 const TextSplit = ({ text, clicked }) => {
-  const [width, setWidth] = useState("");
-  
   const fullText = text;
   let characters = [];
   const numChars = fullText.length;
@@ -61,32 +73,32 @@ const TextSplit = ({ text, clicked }) => {
       } else {
         return prevVal + " " + currVal * scale;
       }
-    }
+    };
     const scaledPath = pathElements.reduce(pathReducer);
-    return scaledPath; 
-  }
-  
-  const path = "M 0 0 C 126 -66 78 85 8 88 C -58 64 -65 50 -90 13 C -130 -97 -87 -90 114 -83"
+    return scaledPath;
+  };
+
+  const path =
+    "M 0 0 C 126 -66 78 85 8 88 C -58 64 -65 50 -90 13 C -130 -97 -87 -90 114 -83";
   const scale = 1.4;
   const scaledPath = scalePath(path, scale);
-  
+
   return (
     <span className="word">
       {characters.map((c, index) => (
         <span
           key={index}
-          className={`char ${clicked ? 'char-animation' : ''}`}
+          className={`char ${clicked ? "char-animation" : ""}`}
           style={{
             "--char-index": `${index}`,
             "--char-width": 20 + "px",
             "--num-chars": numChars,
-            "--path": `"${scaledPath}"`
+            "--path": `"${scaledPath}"`,
           }}
         >
           {c}
         </span>
       ))}
-      
     </span>
   );
 };

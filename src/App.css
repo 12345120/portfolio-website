@@ -9,3 +9,33 @@
   min-height: 100vh;
   height: fit-content;
 }
+
+.App_pointer {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  transform: translate(-50%, -50%) rotateZ(45deg);
+  border: 5px solid black;
+  z-index: 99;
+
+  transition: transform 20ms, width 300ms, height 300ms;
+  pointer-events: none;
+  
+  --spin-time: 1.5s;
+  animation: spin-pointer var(--spin-time) linear infinite;
+}
+
+@keyframes spin-pointer {
+  0% {
+    transform: translate(-50%, -50%) rotateZ(45deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotateZ(calc(45deg + 360deg));
+  }
+}
+
+.App_pointer___focused {
+  width: 100px;
+  height: 100px;
+  --spin-time: 7s;
+}

@@ -1,6 +1,4 @@
 SUPER:
-- text path offset 3d animation (CLICK --> LOADING for waterdop on click)
-  - https://css-irl.info/positioning-text-along-a-path-with-css/
 
 TODO: 
 - animation trigger (and stay) on scroll

@@ -1,16 +1,14 @@
-import React, { useState } from "react";
 import "../styles/Home.css";
 import Waterdrop from "./Waterdrop";
 import WaterdropBody from "./WaterdropBody";
 import facebook from '../assets/images/facebook.png'
 
 function Home() {
-  const [waterdropClicked, setWaterdropClicked] = useState(false);
   
   return (
     <div className="Home">
 
-      <div title="HEON YIM" className="Home_header">HEON YIM</div>
+      <h1 title="HEON YIM" className="Home_header">HEON YIM</h1>
       <div className="Home_content">
         <Waterdrop>
           <WaterdropBody title={`Facebook (Meta) Clone`} img={facebook}>
