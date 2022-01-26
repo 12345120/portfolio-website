@@ -5,7 +5,7 @@ import "../styles/Waterdrop.css";
 export default function Waterdrop({ children }) {
   const [clicked, setClicked] = useState(false);
   const [hovered, setHovered] = useState(false);
-  const [ , dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
 
   return (
     <div className="Waterdrop">

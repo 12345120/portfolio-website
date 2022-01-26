@@ -2,9 +2,10 @@ import { useEffect } from "react";
 import "./App.css";
 import Home from "./components/Home";
 import LeftBar from "./components/LeftBar";
+import SquareSpinner from "./components/SquareSpinner";
 import { useStateValue } from "./context/StateProvider";
 
-function App() {
+export default function App() {
   const [{ trigger }] = useStateValue();
 
   useEffect(() => {
@@ -18,7 +19,17 @@ function App() {
   return (
     <div className="App" id="app">
       <div className="App_content">
-        {/* Navbar */}
+        {/*  Square Spinners Top Right */}
+        <SquareSpinner
+          style={{ top: "0", right: "0", width: "30vw", height: "30vw" }}
+          timeScale={1.8}
+        />
+
+        {/* Square Spinners Left Low */}
+        <SquareSpinner
+          style={{ top: "450px", left: "100px", width: "15vw", height: "15vw" }}
+          timeScale={0.7}
+        />
 
         {/* Left Bar */}
         <LeftBar></LeftBar>
@@ -35,5 +46,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

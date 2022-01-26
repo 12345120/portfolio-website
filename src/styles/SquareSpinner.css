@@ -1,0 +1,46 @@
+.SquareSpinner_squareWrapper {
+  position: fixed;
+  width: var(--width); height: var(--width);
+}
+
+.SquareSpinner_bigSquare {
+  position: relative;
+  z-index: -1;
+  border: 10px solid black;
+  width: 100%; height: 100%;
+  transform: rotateZ(var(--tilt));
+  display: grid;
+  place-items: center;
+  animation: spin-square var(--time) linear infinite,
+    border-color 5s linear infinite alternate;
+}
+
+.SquareSpinner_innerSquare {
+  position: absolute;
+  border: 5px solid black;
+  width: 100%; height: 100%;
+  transform: rotateZ(var(--tilt));
+  animation: spin-square var(--time) linear infinite,
+    border-color 5s linear infinite alternate;
+}
+
+@keyframes spin-square {
+  0% {
+    transform: rotateZ(30deg);
+  }
+  100% {
+    transform: rotateZ(calc(30deg + 360deg * var(--direction)));
+  }
+}
+
+@keyframes border-color {
+  0% {
+    border-color: black;
+  }
+  70% {
+    border-color: black;
+  }
+  100% {
+    border-color: white;
+  }
+}

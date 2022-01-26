@@ -1,5 +1,6 @@
 .App {
-  /* background-color: rgba(var(--pri-color-rgb), 1); */
+  position: relative;
+  z-index: 1;
   background-image: linear-gradient(
     -90deg,
     rgb(var(--pri-color-rgb)),
@@ -8,7 +9,11 @@
   width: 100%;
   min-height: 100vh;
   height: fit-content;
+  overflow-x: hidden;
 }
+
+
+/* ### Cursor Pointer ### */
 
 .App_pointer {
   position: fixed;

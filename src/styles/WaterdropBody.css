@@ -4,7 +4,6 @@
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
   width: 90%; height: 80%;
-  border: 2px solid red;
   transition: transform 200ms;
   cursor: pointer;
 }
@@ -41,7 +40,7 @@
 }
 
 .WaterdropBody_img {
-  width: 60%;
+  width: 55%;
   object-fit: cover;
   border-radius: 15px;
   background-color: white;
