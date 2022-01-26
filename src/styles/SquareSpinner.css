@@ -6,22 +6,20 @@
 .SquareSpinner_bigSquare {
   position: relative;
   z-index: -1;
-  border: 10px solid black;
+  border: calc(10px * var(--border-scale)) solid black;
   width: 100%; height: 100%;
   transform: rotateZ(var(--tilt));
   display: grid;
   place-items: center;
-  animation: spin-square var(--time) linear infinite,
-    border-color 5s linear infinite alternate;
+  animation: spin-square var(--time) linear infinite;
 }
 
 .SquareSpinner_innerSquare {
   position: absolute;
-  border: 5px solid black;
+  border: calc(10px * var(--border-scale) / 2) solid black;
   width: 100%; height: 100%;
   transform: rotateZ(var(--tilt));
-  animation: spin-square var(--time) linear infinite,
-    border-color 5s linear infinite alternate;
+  animation: spin-square var(--time) linear infinite;
 }
 
 @keyframes spin-square {

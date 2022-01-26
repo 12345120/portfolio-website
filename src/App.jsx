@@ -21,14 +21,16 @@ export default function App() {
       <div className="App_content">
         {/*  Square Spinners Top Right */}
         <SquareSpinner
-          style={{ top: "0", right: "0", width: "30vw", height: "30vw" }}
+          wrapperStyle={{ top: "0", right: "0", width: "30vw", height: "30vw" }}
           timeScale={1.8}
+          borderScale={1}
         />
 
         {/* Square Spinners Left Low */}
         <SquareSpinner
-          style={{ top: "450px", left: "100px", width: "15vw", height: "15vw" }}
+          wrapperStyle={{ top: "450px", left: "100px", width: "15vw", height: "15vw" }}
           timeScale={0.7}
+          borderScale={0.6}
         />
 
         {/* Left Bar */}
