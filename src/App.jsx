@@ -39,7 +39,7 @@ export default function App() {
         {/* Main Content */}
         <Home></Home>
 
-        {/* Footer */}
+        {/* Footer/ContactMe */}
       </div>
 
       <div

@@ -19,7 +19,7 @@
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
   perspective: 300px;
   
-  --flicker-time: 2s;
+  --flicker-time: 4s;
 }
 
 .Home_header::before {
@@ -35,11 +35,14 @@
 }
 
 @keyframes shadow-flicker {
-  9%, 30%, 42%, 60%, 100% {
+  0% {
     opacity: 0;
   }
-  10%, 40%, 45% {
-    opacity:0.3;
+  50% {
+    opacity: 0.8; 
+  }
+  100% {
+    opacity: 0;
   }
 }
 
@@ -53,11 +56,14 @@
 }
 
 @keyframes text-flicker {
-  9%, 30%, 42%, 60%, 100% {
+  0% {
     opacity: 0;
   }
-  10%, 40%, 45% {
-    opacity: 1;
+  50% {
+    opacity: 0.8; 
+  }
+  100% {
+    opacity: 0;
   }
 }
 

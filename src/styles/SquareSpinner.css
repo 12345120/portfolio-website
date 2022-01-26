@@ -6,7 +6,8 @@
 .SquareSpinner_bigSquare {
   position: relative;
   z-index: -1;
-  border: calc(10px * var(--border-scale)) solid black;
+  border: calc(10px * var(--border-scale)) solid;
+  border-image: linear-gradient(rgba(var(--quar-color-rgb), 0.8), rgba(0,0,0,0.1)) 30;
   width: 100%; height: 100%;
   transform: rotateZ(var(--tilt));
   display: grid;
@@ -16,7 +17,8 @@
 
 .SquareSpinner_innerSquare {
   position: absolute;
-  border: calc(10px * var(--border-scale) / 2) solid black;
+  border: calc(10px * var(--border-scale) 0.65) solid;
+  border-image: linear-gradient(rgba(var(--ter-color-rgb), 0.6), rgba(0,0,0,0.2)) 30;
   width: 100%; height: 100%;
   transform: rotateZ(var(--tilt));
   animation: spin-square var(--time) linear infinite;
