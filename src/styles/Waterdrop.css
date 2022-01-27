@@ -26,7 +26,7 @@
 
 .Waterdrop_body__opac {
   opacity: 1;
-  animation: become-pointer-active 10ms forwards;
+  animation: become-pointer-active 10ms calc(var(--drop-animation-time) * 1.50 + var(--drop-animation-delay) * 0.65) forwards;
 }
 @keyframes become-pointer-active {
   to { pointer-events: all;}

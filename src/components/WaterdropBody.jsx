@@ -1,11 +1,11 @@
 import { useStateValue } from "../context/StateProvider";
 import "../styles/WaterdropBody.css";
 
-export default function WaterdropBody({ children, title, img }) {
-  const [ , dispatch] = useStateValue();
+export default function WaterdropBody({ children, title, img, url }) {
+  const [, dispatch] = useStateValue();
 
   return (
-    <div
+    <a
       className="WaterdropBody"
       onMouseEnter={() => {
         dispatch({
@@ -19,6 +19,7 @@ export default function WaterdropBody({ children, title, img }) {
           trigger: false,
         });
       }}
+      href={url}
     >
       <div className="WaterdropBody_wrapper">
         <img src={img} alt="portfolio-img" className="WaterdropBody_img" />
@@ -30,6 +31,6 @@ export default function WaterdropBody({ children, title, img }) {
           <p className="WaterdropBody_text">{children}</p>
         </div>
       </div>
-    </div>
+    </a>
   );
 }
