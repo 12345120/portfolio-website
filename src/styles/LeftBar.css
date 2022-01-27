@@ -101,3 +101,9 @@
   background-color: rgba(0, 0, 0, 0.6);
 }
 
+
+@media (max-width: 1024px) {
+  .LeftBar {
+    opacity: 0;
+  }
+}

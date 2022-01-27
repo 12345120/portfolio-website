@@ -1,6 +1,5 @@
 .SquareSpinner_squareWrapper {
   position: fixed;
-  width: var(--width); height: var(--width);
 }
 
 .SquareSpinner_bigSquare {

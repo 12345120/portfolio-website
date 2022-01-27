@@ -16,6 +16,13 @@
   position: relative;
 }
 
+@media (max-width: 1450px) {
+  .WaterdropBody_wrapper {
+    flex-direction: column;
+    gap: 50px;
+  }
+}
+
 .WaterdropBody:hover {
   transform: translate(-50%, -50%) scale(1.05) ;
 }
@@ -40,37 +47,51 @@
 }
 
 .WaterdropBody_img {
-  width: 55%;
+  width: 640px;
   object-fit: cover;
   border-radius: 15px;
   background-color: white;
   mix-blend-mode: multiply;
+  position: relative;
 }
 
 .WaterdropBody_img::after {
-  background-image: linear-gradient(transparent, rgba(0,0,0,0.2));
+  content: '';
+  position: absolute;
+  width: 100%; height: 100%;
+  z-index: 1;
+  background-color: black;
+  background-image: linear-gradient(transparent, rgba(0,0,0,1));
 }
 
 .WaterdropBody_textBlock {
+  /* width: 430px; */
   margin-left: 100px;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.WaterdropBody_title {
-  /* color: rgba(255, 255, 255, 0.85); */
+@media (max-width: 1530px) {
+  .WaterdropBody_textBlock {
+    margin-left: 40px;
+  }
+}
+
+.WaterdropBody_titleWord {
   position: relative;
   color: transparent;
   background-image: linear-gradient(135deg, white, rgba(var(--ter-color-rgb), 1));
   background-size: 400%;
   background-position: 25% 95%;
   background-clip: text;
-  font-size: 2.5em;
+  font-size: 3.0rem;
+  font-weight: 600;
+  margin-right: 20px;
+  white-space: nowrap; /* ? why does this fix */
 }
 
-.WaterdropBody_title::after {
-  white-space: nowrap;
+.WaterdropBody_titleWord::after {
   content: attr(title);
   position: absolute;
   color: black;

@@ -10,6 +10,12 @@
   --drop-animation-delay: 1.4s;
 }
 
+@media (max-width: 1450px) {
+  .Waterdrop {
+    height: 700px;
+  }
+}
+
 .Waterdrop_body {
   pointer-events: none;
   position: absolute;

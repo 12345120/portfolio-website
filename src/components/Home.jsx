@@ -31,7 +31,7 @@ function Home() {
           </WaterdropBody>
         </Waterdrop>
         {/* <Waterdrop>
-          <WaterdropBody title={`Amazon (Meta) Clone`}>
+          <WaterdropBody title={`Amazon Clone`}>
             {`React, FireBase`}
           </WaterdropBody>
         </Waterdrop> */}

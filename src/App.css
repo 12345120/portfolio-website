@@ -46,3 +46,9 @@
   height: 100px;
   --spin-time: 7s;
 }
+
+@media (pointer: none), (max-width: 640px) {
+  .App_pointer {
+    opacity: 0;
+  }
+}
