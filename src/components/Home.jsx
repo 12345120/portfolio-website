@@ -1,8 +1,7 @@
 import "../styles/Home.css";
 import Waterdrop from "./Waterdrop";
 import WaterdropBody from "./WaterdropBody";
-import facebook from "../assets/images/facebook.png";
-import biblehouse from "../assets/images/biblehouse.png";
+import { projectsList } from "../app_data/projectsList.jsx";
 
 function Home() {
   return (
@@ -12,29 +11,17 @@ function Home() {
       </h1>
 
       <div className="Home_content">
-        <Waterdrop>
-          <WaterdropBody
-            title={`Facebook (Meta) Clone`}
-            img={facebook}
-            url={"https://clone-1-gp5gdc6n6-12345120.vercel.app/"}
-          >
-            {`Next.js, React, TailwindCSS, NextAuth (OAuth), FireBase`}
-          </WaterdropBody>
-        </Waterdrop>
-        <Waterdrop>
-          <WaterdropBody
-            title={`BibleHouse`}
-            img={biblehouse}
-            url={"https://www.biblehouse.us"}
-          >
-            {`Next.js, React, TailwindCSS, Contentful (headless CMS)`}
-          </WaterdropBody>
-        </Waterdrop>
-        {/* <Waterdrop>
-          <WaterdropBody title={`Amazon Clone`}>
-            {`React, FireBase`}
-          </WaterdropBody>
-        </Waterdrop> */}
+        {projectsList.map((project) => (
+          <Waterdrop>
+            <WaterdropBody
+              title={project.title}
+              img={project.img}
+              url={project.url}>
+              {project.technologies_used}
+            </WaterdropBody>
+          </Waterdrop>
+        ))}
+        
       </div>
     </div>
   );

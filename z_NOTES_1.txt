@@ -60,7 +60,7 @@ useLayoutEffect(() => {
 https://daveceddia.com/useeffect-vs-uselayouteffect/
 - IMPORTANT ***** 
 - useEffect runs asynchronously after a render is painted to screen
-- useLayoutEffect runs synchronouslyafter a render but before screen is updated
+- useLayoutEffect runs synchronously after a render but before screen is updated
 
 
 https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
